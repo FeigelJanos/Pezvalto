@@ -41,7 +41,7 @@ function visszajaroSzamol(){
 
     else{
         maradek=0;
-        visszajaro.innerHTML="A befizetett összeg nem értelmezhető.";
+        visszajaro.innerHTML="A befizetett összeg nem megfelelő.";
         befizetesMezo.focus()
     }
     befizetesMezo.value="";
