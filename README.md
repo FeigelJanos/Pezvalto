@@ -1,0 +1,2 @@
+# Pezvalto
+Penzvaltó algoritmus
