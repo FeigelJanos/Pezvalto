@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", ()=>{document.querySelecor("#get-new-osszeg").onclick=ujOsszeg
+document.addEventListener("DOMContentLoaded", ()=>{document.querySelector("#get-new-osszeg").onclick=ujOsszeg
                                                   });
 
 function ujOsszeg(){
