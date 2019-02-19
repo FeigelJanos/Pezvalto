@@ -50,6 +50,8 @@ function visszajaroSzamol(){
 function kiszamol(osszeg){
     let penznemek=[];
     const cimletek=[20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5]
+    const cimletNevek=["Húszezres", "Tízezres", "Ötezres", "Kétezres", "Ezres", "Ötszázas", "Kétszáz forintos", "Száz forintos", 
+    "Ötven forintos", "Húsz forintos", "Tíz forintos", "Öt forintos"];
     let maradek= osszeg;
     let counter=0;
 
@@ -71,5 +73,6 @@ function kiszamol(osszeg){
 }
 while(maradek>5);
 
-visszajaro.innerHTML="Visszajár:";
+
+visszajaro.innerHTML="Visszajár:"+cimletNevek;
 }
