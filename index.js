@@ -2,5 +2,5 @@ document.addEventListener("DOMContentLoaded", ()=>{document.querySelector("#get-
                                                   });
 
 function ujOsszeg(){
-consle.log("Megy");
+console.log("Megy");
 }
