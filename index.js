@@ -74,5 +74,8 @@ function kiszamol(osszeg){
 while(maradek>5);
 
 
-visszajaro.innerHTML="Visszajár:"+cimletNevek;
+visszajaro.innerHTML="Visszajár:"+ visszajaroSzoveg(penznemek, cimletNevek);
+}
+
+function visszajaroSzoveg(ertekek, cimletek){
 }
