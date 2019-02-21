@@ -50,17 +50,19 @@ function visszajaroSzamol(){
     }
     befizetesMezo.value="";                         //Change the input field to empty
 }
-
+/*Counts the change from the overpay*/
 function kiszamol(osszeg){
-    let penznemek=[];
-    const cimletek=[20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5]
+    let penznemek=[];           //Initiates an empty array
+    const cimletek=[20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5]       //Initiates an array with all pssible denominations
     const cimletNevek=["Húszezres", "Tízezres", "Ötezres", "Kétezres", "Ezres", "Ötszázas", "Kétszáz forintos", "Száz forintos", 
-    "Ötven forintos", "Húsz forintos", "Tíz forintos", "Öt forintos"];
-    let maradek= osszeg;
-    let counter=0;
-
- do{
-    for (let index in cimletek ){
+    "Ötven forintos", "Húsz forintos", "Tíz forintos", "Öt forintos"];      //Initiates an array with the names of the bills
+    let maradek= osszeg;        //variable with value equal to overpay    
+    let counter=0;      //counter variable
+    
+/*For every element in cimletek array divide the overpay with that element until the overpay is less than the current element.
+Push the number of times it was divided into the empty penznemek array. While the overpay is larger than 5*/
+ do{                            
+    for (let index in cimletek ){      
         for(let i=maradek; i>=cimletek[index]; i-=cimletek[index]){
             counter+=1;
             maradek-=cimletek[index];
@@ -79,8 +81,10 @@ while(maradek>5);
 
 
 visszajaro_footer.innerHTML="Visszajár:";
-for (let i in penznemek){
-if (penznemek[i]>0){
+
+    /*Write out how many of wich currency the buyer should recieve onto the page.*/
+    for (let i in penznemek){
+    if (penznemek[i]>0){
     visszajaro_footer.insertAdjacentText("beforeend", penznemek[i] +" db " + cimletNevek[i] + ". ");
 }
 }
