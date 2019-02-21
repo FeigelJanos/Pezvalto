@@ -1,9 +1,12 @@
-document.addEventListener("DOMContentLoaded", main );
+/*As long as the CSS and HTML is not fully loaded javascript content is on hold, after it starts main.*/
+document.addEventListener("DOMContentLoaded", main );  
 
+/*Main function starts here*/
 function main(){
     
-    const befizetendo=document.querySelector("#befizetendo");
-    const visszajaro=document.querySelector("#visszajaro");
+    /*Cashing the DOM*/
+    const befizetendo_section=document.querySelector("#befizetendo");       
+    const visszajaro_footer=document.querySelector("#visszajaro");
     
 
     document.querySelector("#get-new-osszeg").onclick=ujOsszeg
@@ -11,7 +14,7 @@ function main(){
 }
 
 function ujOsszeg(){
-    befizetendo.innerHTML=Math.floor(Math.random()*99900+101);
+    befizetendo_section.innerHTML=Math.floor(Math.random()*99900+101);
 
 }
 
@@ -20,28 +23,28 @@ function visszajaroSzamol(){
     const befizetesMezo=document.querySelector("#befizetett");
    
     let befizetett=document.querySelector("#befizetett").value;
-    let maradek= befizetett - befizetendo.innerHTML;
+    let maradek= befizetett - befizetendo_section.innerHTML;
 
     if (befizetett>5&&maradek===0){
-        visszajaro.innerHTML="A befizetett összeg eggyezik az árral. Nincs visszajáró.";
-        befizetendo.innerHTML=0;
+        visszajaro_footer.innerHTML="A befizetett összeg eggyezik az árral. Nincs visszajáró.";
+        befizetendo_section.innerHTML=0;
     }
 
    else if (befizetett>5&&maradek<0){
         maradek=0;
-        visszajaro.innerHTML="További befizetés szükséges.";
-        befizetendo.innerHTML-=befizetett
+        visszajaro_footer.innerHTML="További befizetés szükséges.";
+        befizetendo_section.innerHTML-=befizetett
         befizetesMezo.focus()
     }
 
     else if(befizetett>5&&maradek>0){
-        befizetendo.innerHTML=0;
+        befizetendo_section.innerHTML="Befizetve";
         kiszamol(maradek);
     }
 
     else{
         maradek=0;
-        visszajaro.innerHTML="A befizetett összeg nem megfelelő.";
+        visszajaro_footer.innerHTML="A befizetett összeg nem megfelelő.";
         befizetesMezo.focus()
     }
     befizetesMezo.value="";
@@ -74,7 +77,7 @@ function kiszamol(osszeg){
 while(maradek>5);
 
 
-visszajaro.innerHTML="Visszajár:"+ visszajaroSzoveg(penznemek, cimletNevek);
+visszajaro_footer.innerHTML="Visszajár:"+ visszajaroSzoveg(penznemek, cimletNevek);
 }
 
 function visszajaroSzoveg(ertekek, cimletek){
