@@ -1,12 +1,13 @@
-/*As long as the CSS and HTML is not fully loaded javascript content is on hold, after it starts main.*/
-document.addEventListener("DOMContentLoaded", main );  
+
+document.addEventListener("DOMContentLoaded", main );  //As long as the CSS and HTML is not fully loaded,
+                                                       //javascript content is on hold, after it starts main.
 
 /*Main function starts here*/
 function main(){
     
     /*Cashing the DOM*/
-    const befizetendo_section=document.querySelector("#befizetendo");       
-    const visszajaro_footer=document.querySelector("#visszajaro");
+    const befizetendo_section = document.querySelector("#befizetendo");       
+    const visszajaro_footer = document.querySelector("#visszajaro");
     
 
     document.querySelector("#get-new-osszeg").onclick=ujOsszeg;     //Cliking on the first button starts the ujOsszeg function
@@ -14,6 +15,7 @@ function main(){
 }
 
 function ujOsszeg(){
+    
     befizetendo_section.innerHTML=Math.floor(Math.random()*99900+101);
 
 }
