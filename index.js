@@ -9,8 +9,8 @@ function main(){
     const visszajaro_footer=document.querySelector("#visszajaro");
     
 
-    document.querySelector("#get-new-osszeg").onclick=ujOsszeg
-    document.querySelector("#befizetes").onclick=visszajaroSzamol
+    document.querySelector("#get-new-osszeg").onclick=ujOsszeg;     //Cliking on the first button starts the ujOsszeg function
+    document.querySelector("#befizetes").onclick=visszajaroSzamol;
 }
 
 function ujOsszeg(){
