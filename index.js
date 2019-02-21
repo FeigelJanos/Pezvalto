@@ -1,24 +1,20 @@
 
-document.addEventListener("DOMContentLoaded", main ); 
- /*As long as the CSS and HTML is not fully loaded, javascript content is on hold, after it starts main.*/
+const befizetendo_section=document.querySelector("#befizetendo");
+const visszajaro_footer=document.querySelector("#visszajaro");
 
 
-/*Main function starts here*/
+document.addEventListener("DOMContentLoaded", main);
+
 function main(){
-    
-    /*Cacheing the DOM*/
-    const befizetendo_section = document.querySelector("#befizetendo");       
-    const visszajaro_footer = document.querySelector("#visszajaro");
-    console.log("betolt");
-
-    document.querySelector("#get-new-osszeg").onclick=ujOsszeg;     //Cliking on the first button starts the ujOsszeg function
-    document.querySelector("#befizetes").onclick=visszajaroSzamol;
+    document.querySelector("#get-new-osszeg").onclick=ujOsszeg
+    document.querySelector("#befizetes").onclick=visszajaroSzamol
 }
 
+
+
 function ujOsszeg(){
-    
     befizetendo_section.innerHTML=Math.floor(Math.random()*99900+101);
-     console.log("elindul");
+
 }
 
 function visszajaroSzamol(){
@@ -41,7 +37,7 @@ function visszajaroSzamol(){
     }
 
     else if(befizetett>5&&maradek>0){
-        befizetendo_section.innerHTML="Befizetve";
+        befizetendo_section.innerHTML=0;
         kiszamol(maradek);
     }
 
@@ -80,9 +76,10 @@ function kiszamol(osszeg){
 while(maradek>5);
 
 
-visszajaro_footer.innerHTML="Visszajár:"+ visszajaroSzoveg(penznemek, cimletNevek);
+visszajaro_footer.innerHTML="Visszajár:";
+for (let i in penznemek){
+if (penznemek[i]>0){
+    visszajaro_footer.insertAdjacentText("beforeend", penznemek[i] +" db " + cimletNevek[i] + ". ");
 }
-
-function visszajaroSzoveg(ertekek, cimletek){
-    console.log("Szamol");
+}
 }
