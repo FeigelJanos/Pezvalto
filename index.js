@@ -1,52 +1,54 @@
-
+/*Cashing the DOM*/
 const befizetendo_section=document.querySelector("#befizetendo");
 const visszajaro_footer=document.querySelector("#visszajaro");
 
-
+/*Start main after HTML and CSS loaded (unnecesary but added security)*/
 document.addEventListener("DOMContentLoaded", main);
 
+/*Main starts here*/
 function main(){
-    document.querySelector("#get-new-osszeg").onclick=ujOsszeg
-    document.querySelector("#befizetes").onclick=visszajaroSzamol
+    document.querySelector("#get-new-osszeg").onclick=ujOsszeg              //If button is clicked starts ujOsszeg funciton
+    document.querySelector("#befizetes").onclick=visszajaroSzamol           //If buton is clicked starts visszajaroSzamol function
 }
 
 
-
+/*Generates a new amount payable*/
 function ujOsszeg(){
-    befizetendo_section.innerHTML=Math.floor(Math.random()*99900+101);
+    befizetendo_section.innerHTML=Math.floor(Math.random()*99899+101);      //Generates a random number between 101 and 100000
 
 }
 
+/*Checks if the paid amount exceeds the price set*/
 function visszajaroSzamol(){
 
-    const befizetesMezo=document.querySelector("#befizetett");
+    const befizetesMezo=document.querySelector("#befizetett");              //Sets const to input DOM element
    
-    let befizetett=document.querySelector("#befizetett").value;
-    let maradek= befizetett - befizetendo_section.innerHTML;
+    let befizetett=document.querySelector("#befizetett").value;             //Sets variable to inputed value
+    let maradek= befizetett - befizetendo_section.innerHTML;                //Calculates the extent of overpay into a variable
 
-    if (befizetett>5&&maradek===0){
-        visszajaro_footer.innerHTML="A befizetett összeg eggyezik az árral. Nincs visszajáró.";
-        befizetendo_section.innerHTML=0;
+    if (befizetett>5&&maradek===0){                //If there is no overpay and the customer paid at least the minimum possible currency
+        visszajaro_footer.innerHTML="A befizetett összeg eggyezik az árral. Nincs visszajáró.";     //Write out the result on the page
+        befizetendo_section.innerHTML=0;                                                          //Sets the remaining payable to 0
     }
 
-   else if (befizetett>5&&maradek<0){
-        maradek=0;
-        visszajaro_footer.innerHTML="További befizetés szükséges.";
-        befizetendo_section.innerHTML-=befizetett
-        befizetesMezo.focus()
+   else if (befizetett>5&&maradek<0){     //If the payment doesn't reach the price, but the customer paid at least the minimum possible currency 
+        maradek=0;                  //Resets overpay variable
+        visszajaro_footer.innerHTML="További befizetés szükséges.";     //Writes out thet more payment is necessary
+        befizetendo_section.innerHTML-=befizetett                   //Reduces the price with the amount already paid
+        befizetesMezo.focus()                                       //Keeps the focus on the input field
     }
 
-    else if(befizetett>5&&maradek>0){
-        befizetendo_section.innerHTML=0;
-        kiszamol(maradek);
+    else if(befizetett>5&&maradek>0){       //If the payment exceeds price and the customer paid at least the minimum
+        befizetendo_section.innerHTML=0;       //Writes out the price as 0
+        kiszamol(maradek);                     //Starts the kiszamol function
     }
 
     else{
-        maradek=0;
-        visszajaro_footer.innerHTML="A befizetett összeg nem megfelelő.";
-        befizetesMezo.focus()
+        maradek=0;          //Resets the owerpay variable to 0
+        visszajaro_footer.innerHTML="A befizetett összeg nem megfelelő.";       //Writes out that the payment is not fine
+        befizetesMezo.focus()                                                   //Keeps the focus on the input field
     }
-    befizetesMezo.value="";
+    befizetesMezo.value="";                         //Change the input field to empty
 }
 
 function kiszamol(osszeg){
