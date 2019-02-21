@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", main );  //As long as the CSS and 
 /*Main function starts here*/
 function main(){
     
-    /*Cashing the DOM*/
+    /*Cacheing the DOM*/
     const befizetendo_section = document.querySelector("#befizetendo");       
     const visszajaro_footer = document.querySelector("#visszajaro");
-    
+    console.log("betolt");
 
     document.querySelector("#get-new-osszeg").onclick=ujOsszeg;     //Cliking on the first button starts the ujOsszeg function
     document.querySelector("#befizetes").onclick=visszajaroSzamol;
@@ -17,7 +17,7 @@ function main(){
 function ujOsszeg(){
     
     befizetendo_section.innerHTML=Math.floor(Math.random()*99900+101);
-
+     console.log("elindul");
 }
 
 function visszajaroSzamol(){
