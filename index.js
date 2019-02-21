@@ -81,4 +81,5 @@ visszajaro_footer.innerHTML="Visszajár:"+ visszajaroSzoveg(penznemek, cimletNev
 }
 
 function visszajaroSzoveg(ertekek, cimletek){
+    console.log("Szamol");
 }
