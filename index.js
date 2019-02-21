@@ -1,6 +1,7 @@
 
-document.addEventListener("DOMContentLoaded", main );  //As long as the CSS and HTML is not fully loaded,
-                                                       //javascript content is on hold, after it starts main.
+document.addEventListener("DOMContentLoaded", main ); 
+ /*/As long as the CSS and HTML is not fully loaded, javascript content is on hold, after it starts main.
+
 
 /*Main function starts here*/
 function main(){
