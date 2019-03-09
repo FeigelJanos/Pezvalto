@@ -10,5 +10,15 @@ input[type=number] {
 }
 
 body{
- background: #e5e5e5; 
+ margin: 0;
+  padding: 0;
+ background-color: #e5e5e5; 
+}
+
+button{
+ background-color: blue;
+  border-radius: 15%;
+  color: white;
+  padding: 1em;
+  margin: 1em;
 }
