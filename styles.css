@@ -17,9 +17,14 @@ body{
 
 button{
  background-color: blue;
-  border-radius: 25%;
+  border-radius: 25px;
   color: white;
   font-weight: bold;
   padding: 1em;
   margin: 1em;
+}
+#befizetendo{
+  padding: 0.5em;
+  min-width: 200px;
+  border: solid 2px blue;
 }
