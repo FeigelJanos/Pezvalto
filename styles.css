@@ -23,8 +23,9 @@ button{
   padding: 1em;
   margin: 1em;
 }
-#befizetendo{
+#bef-keret{
   padding: 0.5em;
-  min-width: 200px;
+  width: 200px;
+  background: white;
   border: solid 2px black;
 }
