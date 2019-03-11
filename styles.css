@@ -29,3 +29,6 @@ button{
   background: white;
   border: solid 2px black;
 }
+header footer section{
+ margin-left: 1em; 
+}
